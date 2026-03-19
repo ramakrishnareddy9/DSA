@@ -1,0 +1,258 @@
+Sieve of Eratosthenes:
+
+The Sieve of Eratosthenes is a classic and efficient algorithm for finding all prime 
+numbers up to a given limit.
+
+Key points:
+
+Create a list of numbers from 2 to the limit
+Iterate through the list, marking multiples of each prime number as composite
+The unmarked numbers at the end are prime
+
+Time complexity: O(n log log n)
+Space complexity: O(n)
+
+public class SieveOfEratosthenes
+ {
+    public static int[] sieveOfEratosthenes(int n) 
+	{
+        boolean[] isPrime = new boolean[n + 1];
+        for (int i = 2; i <= n; i++) 
+		{
+            isPrime[i] = true;
+        }
+        
+        for (int i = 2; i * i <= n; i++) 
+		{
+            if (isPrime[i]) 
+			{
+                for (int j = i * i; j <= n; j += i)
+				{
+                    isPrime[j] = false;
+                }
+            }
+        }
+        
+        // Count the number of primes
+        int count = 0;
+        for (int i = 2; i <= n; i++)
+		{
+            if (isPrime[i]) 
+			{
+                count++;
+            }
+        }
+        
+        // Create an array to store the primes
+        int[] primes = new int[count];
+        int index = 0;
+        for (int i = 2; i <= n; i++) 
+		{
+            if (isPrime[i]) 
+			{
+                primes[index++] = i;
+            }
+        }
+        
+        return primes;
+    }
+
+    public static void main(String[] args) 
+	{
+        int n = 50;
+        int[] primes = sieveOfEratosthenes(n);
+        System.out.print("Primes up to " + n + ": ");
+        for (int i = 0; i < primes.length; i++)
+		{
+            System.out.print(primes[i]);
+            if (i < primes.length - 1) 
+			{
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
+}
+
+Segmented Sieve:
+
+The Segmented Sieve is an optimization of the Sieve of Eratosthenes for finding primes in a specific range or when memory is a constraint.
+Key points:
+
+Divide the range into smaller segments
+Use a base prime list to mark composites in each segment
+Process one segment at a time, reducing memory usage
+
+Time complexity: O(n log log n)
+Space complexity: O(√n)
+
+
+public class SegmentedSieve {
+    public static int[] segmentedSieve(int n) {
+        int limit = (int) Math.floor(Math.sqrt(n)) + 1;
+        int[] basePrimes = simpleSieve(limit);
+        
+        int[] primes = new int[n]; // This is an overestimation, we'll trim later
+        int primeCount = 0;
+        
+        // Copy base primes to the result array
+        for (int i = 0; i < basePrimes.length; i++) {
+            primes[primeCount++] = basePrimes[i];
+        }
+        
+        int low = limit;
+        int high = 2 * limit;
+        
+        while (low < n) {
+            if (high > n) {
+                high = n;
+            }
+            
+            boolean[] isPrime = new boolean[limit + 1];
+            for (int i = 0; i <= limit; i++) {
+                isPrime[i] = true;
+            }
+            
+            for (int i = 0; i < basePrimes.length; i++) {
+                int prime = basePrimes[i];
+                int lowLim = (low / prime) * prime;
+                if (lowLim < low) {
+                    lowLim += prime;
+                }
+                
+                for (int j = lowLim; j < high; j += prime) {
+                    isPrime[j - low] = false;
+                }
+            }
+            
+            for (int i = low; i < high; i++) {
+                if (isPrime[i - low]) {
+                    primes[primeCount++] = i;
+                }
+            }
+            
+            low = low + limit;
+            high = high + limit;
+        }
+        
+        // Trim the primes array to the correct size
+        int[] trimmedPrimes = new int[primeCount];
+        System.arraycopy(primes, 0, trimmedPrimes, 0, primeCount);
+        
+        return trimmedPrimes;
+    }
+    
+    private static int[] simpleSieve(int limit)
+	{
+        boolean[] isPrime = new boolean[limit + 1];
+        for (int i = 0; i <= limit; i++)
+		{
+            isPrime[i] = true;
+        }
+        
+        for (int i = 2; i * i <= limit; i++)
+		{
+            if (isPrime[i])
+			{
+                for (int j = i * i; j <= limit; j += i)
+				{
+                    isPrime[j] = false;
+                }
+            }
+        }
+        
+        int count = 0;
+        for (int i = 2; i <= limit; i++) {
+            if (isPrime[i]) {
+                count++;
+            }
+        }
+        
+        int[] primes = new int[count];
+        int index = 0;
+        for (int i = 2; i <= limit; i++) {
+            if (isPrime[i]) {
+                primes[index++] = i;
+            }
+        }
+        
+        return primes;
+    }
+
+    public static void main(String[] args) {
+        int n = 100;
+        int[] primes = segmentedSieve(n);
+        System.out.print("Primes up to " + n + ": ");
+        for (int i = 0; i < primes.length; i++) {
+            System.out.print(primes[i]);
+            if (i < primes.length - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
+}
+
+Incremental Sieve:
+
+The Incremental Sieve generates prime numbers one by one, allowing for on-demand prime generation without a predefined upper limit.
+Key points:
+
+Maintain a list of previously found primes
+For each new number, check divisibility by known primes
+Add new primes to the list as they're found
+
+Time complexity: O(n log n) for generating n primes
+Space complexity: O(n) to store n primes
+
+
+
+=====================================================
+// incremented sieve
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class IncrementalSieve {
+    private List<Integer> primes;
+    private int current;
+
+    public IncrementalSieve() {
+        primes = new ArrayList<>();
+        current = 2;
+    }
+
+    public int nextPrime() {
+        while (true) {
+            if (isPrime(current)) {
+                primes.add(current);
+                int prime = current;
+                current++;
+                return prime;
+            }
+            current++;
+        }
+    }
+
+    private boolean isPrime(int n) {
+        for (int prime : primes) {
+            if (prime * prime > n) {
+                break;
+            }
+            if (n % prime == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        IncrementalSieve sieve = new IncrementalSieve();
+        System.out.println("First 10 primes:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print(sieve.nextPrime() + " ");
+        }
+    }
+}
+
+
