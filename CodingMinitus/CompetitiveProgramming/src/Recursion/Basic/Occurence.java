@@ -1,4 +1,4 @@
-package Recursion;
+package Recursion.Basic;
 
 public class Occurence {
 	static int linearSearch(int[] arr, int key, int idx) {
