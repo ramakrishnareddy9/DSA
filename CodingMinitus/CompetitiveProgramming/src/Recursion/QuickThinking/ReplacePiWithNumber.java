@@ -2,6 +2,11 @@ package Recursion.QuickThinking;
 /*
     pi -> 3.14
 */
+
+/*
+ * Question:
+ * Replace every occurrence of pi in a string with 3.14 using recursion.
+ */
 public class ReplacePiWithNumber {
     static void replacePi(char[] a, int i) {
         if (a[i] == '\0' || a[i + 1] == '\0') {

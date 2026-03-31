@@ -15,6 +15,10 @@ Output
 
 import java.util.*;
 
+/*
+ * Question:
+ * Find triplets in the array that satisfy the required target condition.
+ */
 public class Triplets {
     // Time : n log n + n^2  space : o(1)
     static List<List<Integer>> triplites(int[] arr, int target) {

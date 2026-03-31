@@ -1,11 +1,9 @@
 package Recursion.QuickThinking;
 
 /*
-Question:
-Given a staircase with n steps, a person can climb 1 to k steps at a time.
-Find the total number of distinct ways to reach exactly tpshe nth step.
-*/
-
+ * Question:
+ * Count ways to reach the nth step when up to k jumps are allowed at each move.
+ */
 public class LaddersProblem {
     // n = staircase k = number stemps can take 1 to k
 	static int ladder(int n, int k) {

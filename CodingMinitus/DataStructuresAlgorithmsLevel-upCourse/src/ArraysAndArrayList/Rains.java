@@ -8,6 +8,34 @@ Output :
     6
 */
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * Given HEIGHTS OF BARS, calculate TOTAL TRAPPED RAIN WATER.
+ * Water is trapped between bars if they have higher bars on both sides.
+ * 
+ * EXPLANATION:
+ * For each bar at index i:
+ * - Find max height to the left (leftMax)
+ * - Find max height to the right (rightMax)
+ * - Water level at i = min(leftMax, rightMax)
+ * - Water trapped = max(0, water_level - height[i])
+ * 
+ * ALGORITHMS:
+ * 1. NAIVE: For each element, find left and right max -> O(n^2)
+ * 2. PRECOMPUTE: Store left and right max arrays -> O(n) time, O(n) space
+ * 3. TWO POINTERS: Use pointers from both ends -> O(n) time, O(1) space
+ * 
+ * EXAMPLE:
+ * Input heights: [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+ *           [            |
+ *         | | |        |_|
+ *        _| | | _|_| |_ | |_ |
+ * Water trapped between bars: 6 units
+ * 
+ * TIME COMPLEXITY: O(n)
+ * SPACE COMPLEXITY: O(1) if two-pointers, O(n) if precomputing
+ */
 public class Rains {
 
     // space : o(1)

@@ -1,6 +1,8 @@
 package Recursion.SubsetBased;
-
-// 0/1 Knapsack Problem
+/*
+ * Question:
+ * Solve the 0/1 knapsack problem to maximize value within the given capacity.
+ */
 public class Knapsack {
 
     static int knapsack(int[] weights, int[] values, int n, int capacity) {

@@ -1,5 +1,28 @@
 package Recursion.Basic;
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * Sort the given array using RECURSIVE bubble sort (not iterative).
+ * 
+ * EXPLANATION:
+ * Bubble sort moves the largest element to the end in each pass.
+ * Recursive approach: In each recursive call, bubbles largest to end, then recurse on remaining.
+ * 
+ * ALGORITHM:
+ * 1. Compare adjacent elements
+ * 2. Swap if arr[j] > arr[j+1]
+ * 3. Recurse for n-1 elements
+ * 4. Base case: when n <= 1
+ * 
+ * EXAMPLES:
+ * Input: [64, 34, 25, 12, 22]
+ * Output: [12, 22, 25, 34, 64]
+ * 
+ * COMPLEXITY:
+ * TIME: O(n^2) - still quadratic despite recursion
+ * SPACE: O(n) - recursion call stack
+ */
 public class BubbleSort {
 	static void bubbleSort(int[] arr, int n) {
 		if (arr == null || n <= 1) {

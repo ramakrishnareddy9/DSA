@@ -1,5 +1,9 @@
 package Recursion.Basic;
 
+/*
+ * Question:
+ * Find the occurrence position(s) of a key in an array using recursion.
+ */
 public class Occurence {
 	static int linearSearch(int[] arr, int key, int idx) {
 		if (arr == null || idx == arr.length) {

@@ -2,6 +2,10 @@ package GraphRepresentation;
 
 import java.util.*;
 
+/*
+ * Question:
+ * Represent a graph using adjacency lists and demonstrate graph construction.
+ */
 class Graph {
     int V;
     List<Integer>[] adjacencyList;

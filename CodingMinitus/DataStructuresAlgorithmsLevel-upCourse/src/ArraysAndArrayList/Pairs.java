@@ -12,6 +12,10 @@ Output :
 
 import java.util.*;
 
+/*
+ * Question:
+ * Find pairs in the array that satisfy the required target condition.
+ */
 public class Pairs {
     static List<Integer> pairs(int arr[],int target){
         List<Integer> res = new ArrayList<>();

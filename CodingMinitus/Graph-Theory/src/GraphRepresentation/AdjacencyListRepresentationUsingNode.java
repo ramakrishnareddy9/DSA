@@ -2,6 +2,10 @@ package GraphRepresentation;
 
 import java.util.*;
 
+/*
+ * Question:
+ * Represent a graph using a node-based adjacency list structure.
+ */
 public class AdjacencyListRepresentationUsingNode {
 	static class Node {
 		String name;

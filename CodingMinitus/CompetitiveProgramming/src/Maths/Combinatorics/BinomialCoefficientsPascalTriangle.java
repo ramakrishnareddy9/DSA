@@ -1,5 +1,9 @@
 package Maths.Combinatorics;
 
+/*
+ * Question:
+ * Compute binomial coefficient C(n, k) using Pascal triangle / combinatorics methods.
+ */
 public class BinomialCoefficientsPascalTriangle {
     
     // Calculate C(n, k) using Pascal's Triangle formula

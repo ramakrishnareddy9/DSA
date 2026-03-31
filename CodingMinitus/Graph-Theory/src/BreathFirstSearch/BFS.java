@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
+/*
+ * Question:
+ * Traverse a graph using Breadth-First Search (BFS).
+ */
 public class BFS {
     static class Graph {
         int V;

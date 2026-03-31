@@ -1,5 +1,31 @@
 package Recursion.DivideAndConqure;
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * Sort an array using QUICK SORT (Divide & Conquer approach).
+ * 
+ * EXPLANATION:
+ * Quick Sort selects a PIVOT and partitions around it.
+ * 1. Pick a pivot element
+ * 2. Partition: elements < pivot go left, > pivot go right
+ * 3. Recursively sort left and right partitions
+ * 
+ * PIVOT SELECTION STRATEGIES:
+ * - First element, Last element, Random, Median-of-three
+ * 
+ * EXAMPLES:
+ * Input: [64, 34, 25, 12, 22, 11, 90]
+ * Pivot = 12
+ * After partition: [...elements < 12..., 12, ...elements > 12...]
+ * Output: [11, 12, 22, 25, 34, 64, 90]
+ * 
+ * TIME COMPLEXITY:
+ * - Best/Average: O(n log n)
+ * - Worst: O(n^2) if pivot always divides unevenly
+ * SPACE COMPLEXITY: O(log n) - recursion stack
+ * STABLE: No (not stable by default)
+ */
 public class QuickSort {
     static int partition(int[] arr, int s, int e) {
         if (arr == null || s >= e) {

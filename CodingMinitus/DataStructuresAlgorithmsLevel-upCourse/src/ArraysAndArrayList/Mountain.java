@@ -7,6 +7,10 @@ Write a function that takes input an array of distinct integers, and returns the
 
 */
 
+/*
+ * Question:
+ * Find the length of the longest mountain subarray.
+ */
 public class Mountain {
     static int longestMountain(int arr[]){
         int n = arr.length;

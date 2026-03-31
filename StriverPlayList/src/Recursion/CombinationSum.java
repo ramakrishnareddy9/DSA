@@ -2,6 +2,27 @@ package Recursion;
 
 import java.util.*;
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * Find ALL UNIQUE COMBINATIONS that SUM to TARGET.
+ * ELEMENTS CAN BE REUSED unlimited times.
+ * All candidates are UNIQUE.
+ * 
+ * EXPLANATION:
+ * Use BACKTRACKING to explore all combinations.
+ * For each candidate, include it (can reuse), or skip it.
+ * Prune: If current sum > target, stop exploring.
+ * 
+ * RECURRENCE:
+ * Try including each candidate, then recurse with target-candidate.
+ * 
+ * EXAMPLE:
+ * Input: candidates = [2,3,6,7], target = 7
+ * Output: [[2,2,3], [7]]
+ * 
+ * TIME: O(N^(T/M)), SPACE: O(T/M)
+ */
 class CombinationSum {
 
     // leetCode 

@@ -3,6 +3,29 @@ package Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * SET ENTIRE ROW AND COLUMN TO 0 if a cell contains 0.
+ * Modify matrix in-place or use optimized space approach.
+ * 
+ * EXPLANATION:
+ * NAIVE: Use O(m+n) extra space for row/col markers
+ * OPTIMAL: Use first row/column as markers + O(1) extra space
+ * 
+ * ALGORITHM:
+ * 1. Check if first row/col need zeroing
+ * 2. Use first row/col as markers
+ * 3. Traverse and zero marked cells
+ * 4. Handle first row/col separately
+ * 
+ * EXAMPLE:
+ * Input: [[1,1,1],     Output: [[1,0,1],
+ *         [1,0,1],     ->      [0,0,0],
+ *         [1,1,1]]            [1,0,1]]
+ * 
+ * TIME: O(m*n), SPACE: O(1)
+ */
 public class MakeZeros {
     // Brute Force
     // Time: O(n * m * (n + m))

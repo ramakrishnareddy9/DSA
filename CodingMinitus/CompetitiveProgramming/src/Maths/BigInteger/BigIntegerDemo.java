@@ -3,6 +3,10 @@ package Maths.BigInteger;
 import java.math.BigInteger;
 import java.util.Random;
 
+/*
+ * Question:
+ * Demonstrate arithmetic and utility operations using BigInteger.
+ */
 public class BigIntegerDemo {
 
     public static void main(String[] args) {

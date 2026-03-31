@@ -12,6 +12,10 @@ Sample Output :
     2
 */
 
+/*
+ * Question:
+ * Find the minimum number of swaps required to sort the array.
+ */
 public class MinimumSwaps {
     static class Pair {
         int value;

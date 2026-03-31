@@ -13,6 +13,10 @@ Sample Output :
 
 import java.util.*;
 
+/*
+ * Question:
+ * Find the smallest subarray which, if sorted, makes the whole array sorted.
+ */
 public class SubarraySort {
     // to identify the base case
     static boolean outOfOrder(int arr[], int i) {

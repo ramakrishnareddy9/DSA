@@ -1,5 +1,9 @@
 package Recursion.QuickThinking;
 
+/*
+ * Question:
+ * Print the sequence of moves to solve Tower of Hanoi for n disks.
+ */
 public class TowersOfHannio {
     static void solveHanoi(int n, char source, char auxiliary, char destination) {
         if (n == 1) {

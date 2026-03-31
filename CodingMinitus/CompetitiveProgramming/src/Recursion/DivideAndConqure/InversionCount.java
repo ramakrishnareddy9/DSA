@@ -1,7 +1,30 @@
 package Recursion.DivideAndConqure;
+
 /*
-Question : (i < j and a[i] > a[j]) all pairs
-*/
+ * PROBLEM STATEMENT:
+ * ==================
+ * Count the number of INVERSIONS in an array.
+ * An inversion is a pair (i, j) where i < j and arr[i] > arr[j].
+ * Use Merge Sort based approach for O(n log n) solution.
+ * 
+ * EXPLANATION:
+ * A naive approach would check all pairs: O(n^2).
+ * Optimized: Use merge sort. Count inversions while merging:
+ * - If left[i] > right[j], all remaining elements in left are inversions with right[j].
+ * 
+ * EXAMPLES:
+ * Input: [1, 3, 5, 2, 4, 6]
+ * Inversions: (3,2), (5,2), (5,4) = 3 inversions
+ * 
+ * Input: [5, 4, 3, 2, 1]
+ * Output: 10 (maximum inversions for 5 elements)
+ * 
+ * Input: [1, 2, 3, 4]
+ * Output: 0 (already sorted, no inversions)
+ * 
+ * TIME COMPLEXITY: O(n log n) - merge sort based
+ * SPACE COMPLEXITY: O(n) - temporary arrays for merging
+ */
 public class InversionCount {
 	static int inversionCountBruteForce(int[] arr) {
 		if (arr == null || arr.length <= 1) {

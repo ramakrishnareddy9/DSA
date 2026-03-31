@@ -1,5 +1,9 @@
 package Recursion.Basic;
 
+/*
+ * Question:
+ * Convert a numeric string into its integer value using recursion.
+ */
 public class StringToNumber {
     static int stringToInt(char[] a, int n) {
         if (n == 0) {

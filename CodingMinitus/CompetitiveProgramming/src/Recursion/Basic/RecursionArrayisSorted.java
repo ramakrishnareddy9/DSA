@@ -1,5 +1,9 @@
 package Recursion.Basic;
 
+/*
+ * Question:
+ * Check whether the given array is sorted using recursion.
+ */
 public class RecursionArrayisSorted {
     static boolean isSorted(int[] arr, int start) {
         if (arr == null || arr.length <= 1 || start >= arr.length - 1) {

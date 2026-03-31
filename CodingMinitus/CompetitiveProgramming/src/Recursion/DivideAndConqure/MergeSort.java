@@ -1,5 +1,32 @@
 package Recursion.DivideAndConqure;
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * Sort an array using MERGE SORT (Divide & Conquer approach).
+ * 
+ * EXPLANATION:
+ * Divide & Conquer Strategy:
+ * 1. DIVIDE: Split array into two halves recursively
+ * 2. CONQUER: Sort each half recursively
+ * 3. MERGE: Merge two sorted halves in O(n)
+ * 
+ * ALGORITHM:
+ * mergeSort(arr, start, end):
+ *   if start < end:
+ *     mid = (start + end) / 2
+ *     mergeSort(arr, start, mid)
+ *     mergeSort(arr, mid+1, end)
+ *     merge(arr, start, mid, end)
+ * 
+ * EXAMPLES:
+ * Input: [64, 34, 25, 12, 22, 11, 90]
+ * Output: [11, 12, 22, 25, 34, 64, 90]
+ * 
+ * TIME COMPLEXITY: O(n log n) - always
+ * SPACE COMPLEXITY: O(n) - temporary arrays
+ * STABLE: Yes (preserves order of equal elements)
+ */
 public class MergeSort {
 	static void merge(int[] arr, int s, int e) {
 		int mid = (s + e) / 2;

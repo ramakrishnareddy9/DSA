@@ -1,5 +1,9 @@
 package Recursion.Basic;
 
+/*
+ * Question:
+ * Print numbers using recursion in the required order/pattern.
+ */
 public class PrintNumberRecursion {
     static String[] words = {"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
 

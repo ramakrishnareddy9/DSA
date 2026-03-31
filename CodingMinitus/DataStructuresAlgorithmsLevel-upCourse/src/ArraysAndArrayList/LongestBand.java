@@ -13,6 +13,11 @@ Explanation :
 */
 
 import java.util.*;
+
+/*
+ * Question:
+ * Find the length of the longest band (longest set of consecutive integers) in an unsorted array.
+ */
 public class LongestBand {
     // Time : o(n) Space : o(n)
     static int longestBand(int[] arr) {

@@ -1,15 +1,10 @@
 package Recursion.QuickThinking;
 
+/*
+ * Question:
+ * Given n friends, each can stay single or pair with one other friend. Count all distinct valid pairings.
+ */
 public class FriendsProblem {
-	/*
-	Question:
-	Given N friends, each friend can either stay single or pair up with exactly one other friend.
-	Find the total number of distinct ways in which all friends can go to the party.
-
-	Example:
-	N = 3
-	Output = 4
-	*/
 
 	static int friendsParing(int n){
         if(n == 1 || n == 2){

@@ -2,6 +2,27 @@ package Recursion;
 
 import java.util.*;
 
+/*
+ * PROBLEM STATEMENT:
+ * ==================
+ * Generate ALL UNIQUE SUBSETS from ARRAY with DUPLICATES.
+ * Each unique subset appears only once (no duplicate subsets).
+ * 
+ * EXPLANATION:
+ * Sort array to group duplicates together.
+ * Use backtracking + duplicate skipping logic.
+ * Skip when nums[i]==nums[i-1] in same recursion level.
+ * 
+ * ALGORITHM:
+ * Sort -> Backtrack with proper i+1 and skip logic
+ * 
+ * EXAMPLE:
+ * Input: [1, 2, 2]
+ * Output: [[], [1], [1,2], [1,2,2], [2], [2,2]]
+ * (no duplicates like [1,2] appearing twice)
+ * 
+ * TIME: O(2^n log n), SPACE: O(2^n)
+ */
 public class SubsetSums2 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<List<Integer>> res = new ArrayList<>();
