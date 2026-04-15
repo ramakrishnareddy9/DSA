@@ -45,10 +45,36 @@ public class GenerateBrackets {
         }
     }
 
+    public ArrayList<String> generateParentheses1(int n) {
+        ArrayList<String> result = new ArrayList<>();
+        backtrack(result, "", 0, 0, n);
+        return result;
+    }
+    
+    void backtrack(ArrayList<String> result, String current, int open, int close, int n) {
+        
+        if (current.length() == 2 * n) {
+            result.add(current);
+            return;
+        }
+        
+        if (open < n) {
+            backtrack(result, current + "(", open + 1, close, n);
+        }
+        
+        if (close < open) {
+            backtrack(result, current + ")", open, close + 1, n);
+        }
+    }
+
 	public static void main(String[] args) {
 		int n = 3;
         List<String> ans = generateParenthesis(n);
+        List<String> ans1 = generateParenthesis(n);
         for (String s : ans) {
+            System.out.println(s);
+        }
+        for (String s : ans1) {
             System.out.println(s);
         }
 	}

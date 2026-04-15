@@ -43,6 +43,44 @@ import java.util.*;
  */
 
 public class PhoneKeypadProblem {
+    // Alternate GFG-style approach 
+    /*
+    String[] keypad = {
+        "", "", "abc", "def", "ghi","jkl", "mno", "pqrs", "tuv", "wxyz"
+    };
+
+    public ArrayList<String> possibleWords(int[] arr) {
+        ArrayList<String> result = new ArrayList<>();
+        
+        if (arr.length == 0) return result;
+        
+        generate(arr, 0, new StringBuilder(), result);
+        return result;
+    }
+    
+    void generate(int[] arr, int index, StringBuilder current, ArrayList<String> result) {
+        
+        if (index == arr.length) {
+            if (current.length() > 0) {
+                result.add(current.toString());
+            }
+            return;
+        }
+        
+        if (arr[index] == 0 || arr[index] == 1) {
+            generate(arr, index + 1, current, result);
+            return;
+        }
+        
+        String letters = keypad[arr[index]];
+        
+        for (int i = 0; i < letters.length(); i++) {
+            current.append(letters.charAt(i));
+            generate(arr, index + 1, current, result);
+            current.deleteCharAt(current.length() - 1);
+        }
+    }
+    */
     
     static String[] keypad = {"", "", "ABC", "DEF", "GHI", "JKL", "MNO", "PQRS", "TUV", "WXYZ"};
     
