@@ -1,5 +1,7 @@
 package BinarySearch;
 
+import java.util.Arrays;
+
 /*
 Problem: PRATA – Roti Prata
 IEEE is having its AGM next week, and the president wants to serve cheese pratas after the meeting.
@@ -45,5 +47,46 @@ Output:
 */
 
 public class Pratas {
-    
+
+    static int pratasCooked(int[] ranks, int time) {
+        int totalPratas = 0;
+        for (int r : ranks) {
+            int currTime = 0;
+            int j = 1;
+            while (true) {
+                currTime += r * j;
+                if (currTime > time)
+                    break;
+                totalPratas++;
+                j++;
+            }
+        }
+        return totalPratas;
+    }
+
+    static int minTime(int[] ranks, int P) {
+        int low = 0;
+        int high = Arrays.stream(ranks).min().getAsInt() * P * (P + 1) / 2;
+        int ans = high;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (pratasCooked(ranks, mid) >= P) {
+                ans = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        int P = 10;
+        int[] ranks = {1, 2, 3, 4};
+
+        System.out.println(minTime(ranks, P)); // Output: 12
+    }
 }
