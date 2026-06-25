@@ -1,54 +1,60 @@
 package SortingAndSearching;
 
-public class MregeSort {
-    static void Conqure(int a[], int si, int ei, int mid) {
+public class MergeSort {
+
+    // IMP 1 : Interview Style Merge Sort
+    // Uses a single temporary array during merge
+
+    static void mergeInterviewStyle(int arr[], int si, int mid, int ei) {
         int merged[] = new int[ei - si + 1];
-        int idx1 = si;
-        int idx2 = mid + 1;
-        int x = 0;
-        while (idx1 <= mid && idx2 <= ei) {
-            if (a[idx1] <= a[idx2]) {
-                merged[x++] = a[idx1++];
+        int left = si;
+        int right = mid + 1;
+        int k = 0;
+        while (left <= mid && right <= ei) {
+            if (arr[left] <= arr[right]) {
+                merged[k++] = arr[left++];
             } else {
-                merged[x++] = a[idx2++];
+                merged[k++] = arr[right++];
             }
         }
-        while (idx1 <= mid) {
-            merged[x++] = a[idx1++];
+
+        while (left <= mid) {
+            merged[k++] = arr[left++];
         }
-        while (idx2 <= ei) {
-            merged[x++] = a[idx2++];
+
+        while (right <= ei) {
+            merged[k++] = arr[right++];
         }
-        for (int i = 0, j = si; i < ei - si + 1; i++, j++) {
-            a[j] = merged[i];
+
+        for (int i = 0, j = si; i < merged.length; i++, j++) {
+            arr[j] = merged[i];
         }
     }
 
-    static void mergSort(int a[], int si, int ei) {
-        if (si >= ei) {
-            return;
-        }
+    static void mergeSortInterviewStyle(int arr[], int si, int ei) {
+        if (si >= ei) return;
         int mid = si + (ei - si) / 2;
-        mergSort(a, si, mid);
-        mergSort(a, mid + 1, ei);
-        Conqure(a, si, ei, mid);
+        mergeSortInterviewStyle(arr, si, mid);
+        mergeSortInterviewStyle(arr, mid + 1, ei);
+        mergeInterviewStyle(arr, si, mid, ei);
     }
 
-    static void merge(int[] arr, int left, int mid, int right) {
+    // IMP 2 : Textbook Style Merge Sort
+    // Creates left[] and right[] temporary arrays
+    static void mergeTextbookStyle(int arr[], int left, int mid, int right) {
         int n1 = mid - left + 1;
         int n2 = right - mid;
-
-        int[] leftArr = new int[n1];
-        int[] rightArr = new int[n2];
-
+        int leftArr[] = new int[n1];
+        int rightArr[] = new int[n2];
         for (int i = 0; i < n1; i++) {
             leftArr[i] = arr[left + i];
         }
         for (int j = 0; j < n2; j++) {
             rightArr[j] = arr[mid + 1 + j];
         }
-
-        int i = 0, j = 0, k = left;
+        int i = 0;
+        int j = 0;
+        int k = left;
         while (i < n1 && j < n2) {
             if (leftArr[i] <= rightArr[j]) {
                 arr[k++] = leftArr[i++];
@@ -64,22 +70,19 @@ public class MregeSort {
         }
     }
 
-    static void mergeSort1(int[] arr, int left, int right) {
-        if (left < right) {
-            int mid = left + (right - left) / 2;
-            mergeSort1(arr, left, mid);
-            mergeSort1(arr, mid + 1, right);
-            merge(arr, left, mid, right);
-        }
+    static void mergeSortTextbookStyle(int arr[], int left, int right) {
+        if (left >= right) return;
+        int mid = left + (right - left) / 2;
+        mergeSortTextbookStyle(arr, left, mid);
+        mergeSortTextbookStyle(arr, mid + 1, right);
+        mergeTextbookStyle(arr, left, mid, right);
     }
 
     public static void main(String[] args) {
-        int a[] = { 90, 75, 34, 1, 56, 2, 6, 8 };
-        mergSort(a, 0, a.length - 1);
-        for (int n : a) {
-            System.out.print(n + " ");
+        int arr[] = { 90, 75, 34, 1, 56, 2, 6, 8 };
+        mergeSortInterviewStyle(arr, 0, arr.length - 1);
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
     }
 }
-
-

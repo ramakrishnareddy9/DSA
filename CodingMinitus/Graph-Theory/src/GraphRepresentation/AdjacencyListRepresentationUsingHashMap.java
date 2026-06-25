@@ -6,15 +6,17 @@ import java.util.*;
  * Question:
  * Represent a graph using adjacency lists and demonstrate graph construction.
  */
-class Graph {
-    private int V;
-    private List<List<Integer>> adjacencyList;
+class Graph1 {
 
-    public Graph(int V) {
+    private int V;
+    private Map<Integer, List<Integer>> adjacencyList;
+
+    public Graph1(int V) {
         this.V = V;
-        adjacencyList = new ArrayList<>();
+        adjacencyList = new HashMap<>();
+
         for (int i = 0; i < V; i++) {
-            adjacencyList.add(new ArrayList<>());
+            adjacencyList.put(i, new ArrayList<>());
         }
     }
 
@@ -30,14 +32,16 @@ class Graph {
             for (int vertex : adjacencyList.get(i)) {
                 System.out.print(vertex + " ");
             }
+
             System.out.println();
         }
     }
 }
 
-public class AdjacencyListRepresentation {
+public class AdjacencyListRepresentationUsingHashMap {
     public static void main(String[] args) {
-        Graph graph = new Graph(5);
+        Graph1 graph = new Graph1(5);
+
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(1, 3);

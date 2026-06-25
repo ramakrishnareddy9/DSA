@@ -9,7 +9,7 @@ import java.util.Queue;
  * Question:
  * Traverse a graph using Breadth-First Search (BFS).
  */
-public class BFS {
+public class BFS_OnAdjacencyList {
     static class Graph {
         int V;
         List<Integer>[] adjacencyList;

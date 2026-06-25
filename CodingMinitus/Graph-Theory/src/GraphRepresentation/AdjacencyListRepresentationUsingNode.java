@@ -17,40 +17,31 @@ public class AdjacencyListRepresentationUsingNode {
 		}
 	}
 
-	static class GraphUsingNode {
-		Map<String, Node> nodes;
+	static class Graph {
 
-		GraphUsingNode(List<String> cities) {
-			nodes = new LinkedHashMap<>();
+		Map<String, Node> map = new HashMap<>();
+
+		public Graph(List<String> cities) {
 			for (String city : cities) {
-				nodes.put(city, new Node(city));
+				map.put(city, new Node(city));
 			}
 		}
 
-		public void addEdge(String from, String to) {
-			addEdge(from, to, false);
-		}
-
-		public void addEdge(String from, String to, boolean undirected) {
-			if (!nodes.containsKey(from) || !nodes.containsKey(to)) {
-				throw new IllegalArgumentException("Both cities must exist in the graph.");
-			}
-
-			nodes.get(from).neighbors.add(to);
-
-			if (undirected) {
-				nodes.get(to).neighbors.add(from);
+		public void addEdge(String x, String y, boolean undir) {
+			map.get(x).neighbors.add(y);
+			if (undir) {
+				map.get(y).neighbors.add(x);
 			}
 		}
 
 		public void printAdjList() {
-			for (Map.Entry<String, Node> entry : nodes.entrySet()) {
+			for (Map.Entry<String, Node> entry : map.entrySet()) {
 				String city = entry.getKey();
 				Node node = entry.getValue();
-
 				System.out.print(city + " -> ");
-				for (String neighbor : node.neighbors) {
-					System.out.print(neighbor + " ");
+
+				for (String nbr : node.neighbors) {
+					System.out.print(nbr + " ");
 				}
 				System.out.println();
 			}
@@ -59,7 +50,8 @@ public class AdjacencyListRepresentationUsingNode {
 
 	public static void main(String[] args) {
 		List<String> cities = Arrays.asList("Delhi", "London", "Paris", "NewYork");
-		GraphUsingNode graph = new GraphUsingNode(cities);
+
+		Graph graph = new Graph(cities);
 
 		graph.addEdge("Delhi", "London", true);
 		graph.addEdge("Delhi", "Paris", true);

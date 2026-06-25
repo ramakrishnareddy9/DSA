@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Algorithm/src"/>
+	<classpathentry kind="src" path="Apna collage/src"/>
+	<classpathentry kind="src" path="CodingMinitus/CompetitiveProgramming/src"/>
+	<classpathentry kind="src" path="CodingMinitus/DataStructuresAlgorithmsLevel-upCourse/src"/>
+	<classpathentry kind="src" path="CodingMinitus/DynamicPrograming/src"/>
+	<classpathentry kind="src" path="CodingMinitus/Graph-Theory/src"/>
+	<classpathentry excluding="src/" kind="src" path="Collage/Competitive-Coding"/>
+	<classpathentry kind="src" path="Collage/Competitive-Coding/src"/>
+	<classpathentry kind="src" path="Collage/Competitive-Coding-sir/src"/>
+	<classpathentry excluding="BranchAndBound/|module bank/|ModeleBank-2/|DivideAndCOnqure/" kind="src" path="Collage/Data-Structures/DAA"/>
+	<classpathentry kind="src" path="Collage/Data-Structures/DAA/BranchAndBound"/>
+	<classpathentry kind="src" path="Collage/Data-Structures/DAA/DivideAndCOnqure"/>
+	<classpathentry kind="src" path="Collage/Data-Structures/DAA/ModeleBank-2"/>
+	<classpathentry kind="src" path="Collage/Data-Structures/DAA/module bank"/>
+	<classpathentry kind="src" path="CRT/src"/>
+	<classpathentry excluding="Arrays/" kind="src" path="Practice/src"/>
+	<classpathentry kind="src" path="Practice/src/Arrays"/>
+	<classpathentry kind="src" path="StriverPlayList/src"/>
+	<classpathentry kind="output" path="CodingMinitus/DataStructuresAlgorithmsLevel-upCourse/out/production/DataStructuresAlgorithmsLevel-upCourse"/>
+</classpath>

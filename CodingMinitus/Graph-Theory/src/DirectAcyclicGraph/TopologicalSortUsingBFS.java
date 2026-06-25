@@ -2,7 +2,7 @@ package DirectAcyclicGraph;
 
 import java.util.*;
 
-public class TopologicalSortingUsingBFS {
+public class TopologicalSortUsingBFS {
     static class Graph {
         int V;
         List<Integer> adj[];
